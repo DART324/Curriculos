@@ -16,7 +16,7 @@ def recomendar():
     # Simulação de recomendação com base nas habilidades
     vagas = [
         {"empresa": "Empresa A", "pontuacao": 0.9},
-        {"empresa": "Empresa B", "pontuacao": 0.85}
+        {"empresa": "Empresa B", "pontuacao": 0.75}
     ]
     return jsonify(vagas)
 

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Candidata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Candidata</h1>
+    <form id="form-candidata">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" required><br><br>
+
+        <label for="habilidades">Habilidades (separadas por vírgula):</label>
+        <input type="text" id="habilidades" name="habilidades" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Vagas Recomendadas</h2>
+    <ul id="lista-vagas">
+        <!-- Vagas serão inseridas aqui dinamicamente -->
+    </ul>
+
+    <script>
+        document.getElementById('form-candidata').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const cep = document.getElementById('cep').value;
+            const habilidades = document.getElementById('habilidades').value.split(',').map(h => h.trim());
+
+            // Simulação de vagas recomendadas
+            const vagas = [
+                { empresa: "Empresa A", pontuacao: 0.9 },
+                { empresa: "Empresa B", pontuacao: 0.85 }
+            ];
+
+            const listaVagas = document.getElementById('lista-vagas');
+            listaVagas.innerHTML = '';
+            vagas.forEach(vaga => {
+                const li = document.createElement('li');
+                li.textContent = `${vaga.empresa} - Pontuação: ${vaga.pontuacao}`;
+                listaVagas.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

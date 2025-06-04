@@ -1,14 +1,8 @@
 import aiosqlite
 import asyncio
-import sys
 import os
-import itertools
+import getpass
 
-
-RED = "\033[91m"
-RESET = "\033[0m"
-usuario = "admin"
-sistema = "curriculo"
 
 class Curriculo:
 
@@ -151,6 +145,10 @@ async def animacao_ascii():
     print("\n".join(quadros[0]))  
     print()  
 
+RED = "\033[91m"
+RESET = "\033[0m"
+usuario = "admin"
+sistema = getpass.getuser()
 
 
 async def get_comando():
@@ -159,7 +157,6 @@ async def get_comando():
     return await asyncio.to_thread(input)
 
 async def main():
-    os.system("cls" if os.name == "nt" else "clear")
 
     await animacao_ascii()
 
